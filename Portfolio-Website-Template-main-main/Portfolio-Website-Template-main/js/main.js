@@ -46,17 +46,22 @@
 	var burgerMenu = function() {
 
 		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
+			var $toggle = $(this);
+			setTimeout(function() {
+				if ( $('#ftco-nav').hasClass('show') ) {
+					$toggle.addClass('active');
+				} else {
+					$toggle.removeClass('active');
+				}
+			}, 350);
+		});
 
-			event.preventDefault();
+		$('#ftco-nav').on('hidden.bs.collapse', function() {
+			$('.js-fh5co-nav-toggle').removeClass('active');
+		});
 
-			if ( $('#ftco-nav').is(':visible') ) {
-				$(this).removeClass('active');
-			} else {
-				$(this).addClass('active');	
-			}
-
-			
-			
+		$('#ftco-nav').on('shown.bs.collapse', function() {
+			$('.js-fh5co-nav-toggle').addClass('active');
 		});
 
 	};
@@ -65,17 +70,24 @@
 
 	var onePageClick = function() {
 
-
 		$(document).on('click', '#ftco-nav a[href^="#"]', function (event) {
-	    event.preventDefault();
+			event.preventDefault();
 
-	    var href = $.attr(this, 'href');
+			var href = $(this).attr('href');
+			var target = $(href);
 
-	    $('html, body').animate({
-	        scrollTop: $($.attr(this, 'href')).offset().top - 70
-	    }, 500, function() {
-	    	// window.location.hash = href;
-	    });
+			if (target.length) {
+				$('html, body').stop().animate({
+					scrollTop: target.offset().top - 70
+				}, 500);
+			}
+
+			// Auto-collapse mobile navbar after click
+			var $nav = $('#ftco-nav');
+			if ($nav.hasClass('show')) {
+				$nav.collapse('hide');
+				$('.js-fh5co-nav-toggle').removeClass('active');
+			}
 		});
 
 	};
@@ -84,28 +96,45 @@
 	
 
 	var carousel = function() {
-		$('.home-slider').owlCarousel({
-	    loop:true,
-	    autoplay: true,
-	    margin:0,
-	    animateOut: 'fadeOut',
-	    animateIn: 'fadeIn',
-	    nav:false,
-	    autoplayHoverPause: false,
-	    items: 1,
-	    navText : ["<span class='ion-md-arrow-back'></span>","<span class='ion-chevron-right'></span>"],
-	    responsive:{
-	      0:{
-	        items:1
-	      },
-	      600:{
-	        items:1
-	      },
-	      1000:{
-	        items:1
-	      }
-	    }
-		});
+		var $slider = $('.home-slider');
+		if ($slider.length > 0) {
+			var slideCount = $slider.find('.slider-item').length;
+			if (slideCount > 1) {
+				$slider.owlCarousel({
+					loop: true,
+					autoplay: true,
+					margin: 0,
+					animateOut: 'fadeOut',
+					animateIn: 'fadeIn',
+					nav: false,
+					autoplayHoverPause: false,
+					items: 1,
+					navText : ["<span class='ion-md-arrow-back'></span>","<span class='ion-chevron-right'></span>"],
+					responsive:{
+						0:{ items: 1 },
+						600:{ items: 1 },
+						1000:{ items: 1 }
+					}
+				});
+			} else {
+				// Single slide: keep static without infinite fade-to-black cycling
+				$slider.owlCarousel({
+					loop: false,
+					autoplay: false,
+					margin: 0,
+					nav: false,
+					dots: false,
+					items: 1,
+					touchDrag: false,
+					mouseDrag: false,
+					responsive:{
+						0:{ items: 1 },
+						600:{ items: 1 },
+						1000:{ items: 1 }
+					}
+				});
+			}
+		}
 	};
 	carousel();
 
@@ -176,29 +205,26 @@
 	
 
 	var counter = function() {
-		
-		$('#section-counter, .hero-wrap, .ftco-counter, .ftco-about').waypoint( function( direction ) {
-
-			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
-
-				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
-				$('.number').each(function(){
-					var $this = $(this),
-						num = $this.data('number');
-						console.log(num);
-					$this.animateNumber(
-					  {
-					    number: num,
-					    numberStep: comma_separator_number_step
-					  }, 7000
-					);
-				});
-				
-			}
-
-		} , { offset: '95%' } );
-
-	}
+		$('#section-counter, .ftco-about, .ftco-counter').each(function() {
+			var $section = $(this);
+			$section.waypoint(function(direction) {
+				if (direction === 'down' && !$section.hasClass('ftco-counter-animated')) {
+					$section.addClass('ftco-counter-animated');
+					var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',');
+					$section.find('.number').each(function() {
+						var $this = $(this),
+							num = parseInt($this.data('number'), 10) || 0;
+						$this.animateNumber(
+						  {
+						    number: num,
+						    numberStep: comma_separator_number_step
+						  }, 2000
+						);
+					});
+				}
+			}, { offset: '90%' });
+		});
+	};
 	counter();
 
 

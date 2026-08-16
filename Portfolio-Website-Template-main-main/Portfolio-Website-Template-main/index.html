@@ -2,9 +2,18 @@
 <html lang="en">
 
 <head>
-	<title>Piramanayagam A Portfolio</title>
+	<title>Piramanayagam A | Junior Web Developer Portfolio</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Portfolio of Piramanayagam A - Junior Web Developer specializing in HTML, CSS, JavaScript, React, and Full Stack Development.">
+	<meta name="keywords" content="Piramanayagam A, Web Developer, Frontend Developer, Portfolio, JavaScript, React, Full Stack">
+	<meta name="author" content="Piramanayagam A">
+
+	<!-- Open Graph / Social Media Meta Tags -->
+	<meta property="og:title" content="Piramanayagam A | Junior Web Developer Portfolio">
+	<meta property="og:description" content="Portfolio of Piramanayagam A - Junior Web Developer specializing in HTML, CSS, JavaScript, React, and Full Stack Development.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="images/Piramanayagam.jpg">
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
@@ -200,45 +209,32 @@
 			transform: translateY(-3px);
 		}
 
-		/* Animation styles */
+		/* Typing Animation */
 		#typing-animation {
-			position: relative;
 			font-size: 30px;
-			font-weight: bold;
-			color: rgb(255, 255, 255);
-			overflow: hidden;
-			white-space: nowrap;
-			animation: typing 3s steps(20, end) infinite;
+			font-weight: 700;
+			color: #ffffff;
+			display: inline-block;
+			min-height: 45px;
+			line-height: 1.5;
 		}
 
-		#typing-animation:before {
-			content: "";
-			/* position: absolute; */
-			top: 0;
-			left: 0;
-			width: 0;
-			height: 100%;
-			background-color: #ccc;
-			animation: typing-cursor 0.5s ease-in-out infinite;
+		.typing-cursor {
+			display: inline-block;
+			width: 3px;
+			height: 28px;
+			background-color: #ffbd39;
+			margin-left: 4px;
+			vertical-align: middle;
+			animation: blink-cursor 0.75s step-end infinite;
 		}
 
-		@keyframes typing {
-			from {
-				width: 0;
+		@keyframes blink-cursor {
+			from, to {
+				opacity: 1;
 			}
-
-			to {
-				width: 100%;
-			}
-		}
-
-		@keyframes typing-cursor {
-			from {
-				width: 5px;
-			}
-
-			to {
-				width: 0;
+			50% {
+				opacity: 0;
 			}
 		}
 
@@ -249,7 +245,26 @@
 		}
 
 		.zoom-effect:hover {
-			transform: scale(1.05);
+			transform: scale(1.03);
+		}
+
+		.project-tech-badges {
+			margin: 10px 0 14px 0;
+		}
+
+		.project-tech-badge {
+			display: inline-block;
+			background: rgba(255, 189, 57, 0.15);
+			color: #ffbd39;
+			border: 1px solid rgba(255, 189, 57, 0.3);
+			padding: 2px 10px;
+			border-radius: 20px;
+			font-size: 11px;
+			font-weight: 600;
+			margin-right: 6px;
+			margin-bottom: 4px;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
 		}
 
 		/* Hero Section Image & Text Alignment */
@@ -268,9 +283,12 @@
 		}
 
 		.hero-img {
-			width: 100% !important;
+			width: auto !important;
 			max-width: 400px !important;
+			max-height: 480px !important;
 			height: auto !important;
+			object-fit: cover !important;
+			border-radius: 12px;
 			position: relative !important;
 			left: auto !important;
 			right: auto !important;
@@ -297,18 +315,24 @@
 				width: 100% !important;
 				right: auto !important;
 				height: auto !important;
-				margin-top: 40px !important;
+				margin-top: 30px !important;
 			}
 
 			.hero-img {
-				max-width: 260px !important;
-				height: 350px !important;
+				max-width: 280px !important;
+				max-height: 350px !important;
+				height: auto !important;
+				object-fit: cover !important;
 				transform: none !important;
 				margin: 0 auto !important;
 			}
 
 			.slider-text h1 {
 				font-size: 38px !important;
+			}
+
+			.ftco-hireme {
+				background-attachment: scroll !important;
 			}
 		}
 	</style>
@@ -355,45 +379,16 @@
 								<h1 class="mb-4 mt-3">I'm <span>Piramanayagam A</span></h1>
 
 								<!-- Element to contain animated typing -->
-								<span id="typing-animation"></span>
+								<div class="mb-2" style="min-height: 45px;">
+									<span id="typing-animation"></span><span class="typing-cursor" aria-hidden="true"></span>
+								</div>
 
-								<script>
-									// Initialize the typing animation
-									const typingAnimationElement = document.getElementById('typing-animation');
-
-									// Create an array of typing text
-									const typingTexts = [
-										'Web Developer  ',
-										'Volunteer  ',
-										'Frontend Developer  '
-									];
-
-									// Create a function to display the typing animation for a given text
-									function playTypingAnimation(text) {
-										// Loop through each character and add it to the element
-										for (let i = 0; i < text.length; i++) {
-											setTimeout(() => {
-												typingAnimationElement.textContent += text[i];
-											}, i * 200); // Increase the delay to slow down the typing animation
-										}
-
-										// Once the animation is complete, reset the text and start over
-										setTimeout(() => {
-											typingAnimationElement.textContent = '';
-											playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-										}, text.length * 200);
-									}
-
-									// Start the typing animation loop
-									playTypingAnimation(typingTexts[0]);
-								</script>
-
-								<br>
-								<br>
-								<h2>A Junior Web Developer</h2>
-								<p><a href="https://github.com/Piramanayagam15" target="_blank"
-										rel="noopener noreferrer" class="btn btn-white btn-outline-white py-3 px-4">My
-										works</a></p>
+								<h2 class="mb-4">A Junior Web Developer</h2>
+								<p>
+									<a href="https://github.com/Piramanayagam15" target="_blank"
+										rel="noopener noreferrer" class="btn btn-primary py-3 px-4 mr-2">My Works</a>
+									<a href="#contact-section" class="btn btn-white btn-outline-white py-3 px-4">Contact Me</a>
+								</p>
 							</div>
 						</div>
 					</div>
@@ -606,42 +601,62 @@
 				<div class="col-md-4 d-flex ftco-animate">
 					<div class="blog-entry justify-content-end">
 						<a href="https://my-own-creation.vercel.app/" target="_blank" rel="noopener noreferrer"
-							class="block-20 zoom-effect" style="background-image: url('images/Pro 1.jpg');"
+							class="block-20 zoom-effect" style="background-image: url('images/Pro%201.jpg');"
 							aria-label="Bridal Web Application project"></a>
 						<div class="text mt-3 float-right d-block">
 							<h3 class="heading"><a href="https://my-own-creation.vercel.app/" target="_blank"
 									rel="noopener noreferrer">Bridal Web Application</a></h3>
+							<div class="project-tech-badges">
+								<span class="project-tech-badge">HTML</span>
+								<span class="project-tech-badge">CSS</span>
+								<span class="project-tech-badge">JavaScript</span>
+							</div>
 							<p>Developed a responsive bridal web application that enables users to browse collections,
-								book services, and manage appointments on a single platform Using HTML, CSS, Javascript
+								book services, and manage appointments on a single platform using HTML, CSS, and JavaScript.
 							</p>
+							<p><a href="https://my-own-creation.vercel.app/" target="_blank" rel="noopener noreferrer"
+									class="btn btn-primary py-2 px-3">Live Demo &rarr;</a></p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 d-flex ftco-animate">
 					<div class="blog-entry justify-content-end">
 						<a href="https://whimsical-pony-9727f2.netlify.app/" target="_blank" rel="noopener noreferrer"
-							class="block-20 zoom-effect" style="background-image: url('images/Pro 2.jpg');"
+							class="block-20 zoom-effect" style="background-image: url('images/Pro%202.jpg');"
 							aria-label="Context-Aware Knowledge Assistant project"></a>
 						<div class="text mt-3 float-right d-block">
 							<h3 class="heading"><a href="https://whimsical-pony-9727f2.netlify.app/" target="_blank"
 									rel="noopener noreferrer">Context-Aware Knowledge Assistant</a></h3>
+							<div class="project-tech-badges">
+								<span class="project-tech-badge">HTML</span>
+								<span class="project-tech-badge">CSS</span>
+								<span class="project-tech-badge">JavaScript</span>
+							</div>
 							<p>Developed a context-aware knowledge assistant that provides relevant information based on
-								user queries, improving accuracy and knowledge retrieval efficiency Using HTML, CSS,
-								javascript</p>
+								user queries, improving accuracy and knowledge retrieval efficiency using HTML, CSS, and JavaScript.</p>
+							<p><a href="https://whimsical-pony-9727f2.netlify.app/" target="_blank" rel="noopener noreferrer"
+									class="btn btn-primary py-2 px-3">Live Demo &rarr;</a></p>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry">
+					<div class="blog-entry justify-content-end">
 						<a href="https://croplyft.vercel.app/" target="_blank" rel="noopener noreferrer"
-							class="block-20 zoom-effect" style="background-image: url('images/Pro 3.jpg');"
+							class="block-20 zoom-effect" style="background-image: url('images/Pro%203.jpg');"
 							aria-label="Croplyft - Agricultural Web Application project"></a>
 						<div class="text mt-3 float-right d-block">
 							<h3 class="heading"><a href="https://croplyft.vercel.app/" target="_blank"
-									rel="noopener noreferrer">Croplyft - Agricultural Web Application</a></h3>
+									rel="noopener noreferrer">Croplyft - Agricultural Web App</a></h3>
+							<div class="project-tech-badges">
+								<span class="project-tech-badge">HTML</span>
+								<span class="project-tech-badge">CSS</span>
+								<span class="project-tech-badge">JavaScript</span>
+							</div>
 							<p>Developed a responsive agricultural web application that provides farmers with crop
 								recommendations, market prices, and weather forecasts using HTML, CSS, and JavaScript.
 							</p>
+							<p><a href="https://croplyft.vercel.app/" target="_blank" rel="noopener noreferrer"
+									class="btn btn-primary py-2 px-3">Live Demo &rarr;</a></p>
 						</div>
 					</div>
 				</div>
@@ -771,12 +786,12 @@
 		</div>
 	</section>
 
-	<footer class="ftco-footer ftco-section">
+	<footer class="ftco-footer ftco-section py-4">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
-					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					<p class="mb-0 text-muted">
+						Copyright &copy; <span id="current-year"></span> <strong>Piramanayagam A</strong>. All rights reserved.
 					</p>
 				</div>
 			</div>
@@ -803,6 +818,60 @@
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
 	<script src="js/main.js"></script>
+
+	<script>
+		// Smooth typing animation
+		(function() {
+			var words = [
+				'Web Developer',
+				'Frontend Developer',
+				'Full Stack Enthusiast',
+				'Problem Solver'
+			];
+			var wordIndex = 0;
+			var charIndex = 0;
+			var isDeleting = false;
+			var el = document.getElementById('typing-animation');
+
+			function typeEffect() {
+				if (!el) return;
+				var currentWord = words[wordIndex];
+				
+				if (isDeleting) {
+					el.textContent = currentWord.substring(0, charIndex - 1);
+					charIndex--;
+				} else {
+					el.textContent = currentWord.substring(0, charIndex + 1);
+					charIndex++;
+				}
+
+				var speed = isDeleting ? 60 : 120;
+
+				if (!isDeleting && charIndex === currentWord.length) {
+					speed = 1800; // Pause on complete word
+					isDeleting = true;
+				} else if (isDeleting && charIndex === 0) {
+					isDeleting = false;
+					wordIndex = (wordIndex + 1) % words.length;
+					speed = 400; // Pause before typing next word
+				}
+
+				setTimeout(typeEffect, speed);
+			}
+
+			// Dynamic footer year
+			var yearEl = document.getElementById('current-year');
+			if (yearEl) {
+				yearEl.textContent = new Date().getFullYear();
+			}
+
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', typeEffect);
+			} else {
+				typeEffect();
+			}
+		})();
+	</script>
 
 </body>
 
