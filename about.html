@@ -40,6 +40,7 @@
 			font-weight: 600;
 			color: #fff;
 			font-size: 14px;
+			white-space: nowrap;
 		}
 
 		/* About Card & Skills Styling */
@@ -53,12 +54,12 @@
 		}
 
 		.about-img {
-			margin-bottom: 1.5rem;
+			margin-bottom: 1.2rem;
 		}
 
 		.about-img img {
 			width: 100%;
-			max-width: 160px;
+			max-width: 150px;
 			height: auto;
 			aspect-ratio: 1 / 1;
 			object-fit: cover;
@@ -70,19 +71,22 @@
 		}
 
 		.about-info p {
-			margin-bottom: 0.6rem;
+			margin-bottom: 0.75rem;
 			font-size: 14px;
 			color: rgba(255, 255, 255, 0.7);
 			display: flex;
 			justify-content: space-between;
+			align-items: center;
+			gap: 12px;
 			border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
-			padding-bottom: 5px;
+			padding-bottom: 6px;
 		}
 
 		.about-info p span:last-child {
 			color: rgba(255, 255, 255, 0.95);
 			font-weight: 500;
 			text-align: right;
+			white-space: nowrap;
 		}
 
 		.skill-mf {
@@ -263,21 +267,20 @@
 				<div class="col-md-6 col-lg-5 d-flex">
 					<div class="img-about img d-flex align-items-stretch">
 						<div class="overlay w-100">
-							<div class="row">
-								<div class="col-sm-6 col-md-5">
+							<div class="row align-items-center mb-2">
+								<div class="col-12 text-center mb-3">
 									<div class="about-img">
 										<img src="images/Piramanayagam.jpg" class="img-fluid rounded b-shadow-a"
 											alt="Piramanayagam">
 									</div>
 								</div>
-								<!-- Details next to profile image -->
-								<div class="col-sm-6 col-md-7">
+								<!-- Details full width -->
+								<div class="col-12">
 									<div class="about-info">
 										<p><span class="title-s">Name: </span> <span>PIRAMANAYAGAM A</span></p>
 										<p><span class="title-s">Job Role: </span> <span>Junior Web Developer</span></p>
 										<p><span class="title-s">Experience: </span> <span>Fresher</span></p>
-										<p><span class="title-s">Address: </span> <span>Tirunelveli, Tamil Nadu,
-												India</span></p>
+										<p><span class="title-s">Address: </span> <span>Tirunelveli, Tamil Nadu, India</span></p>
 									</div>
 								</div>
 							</div>
