@@ -8933,8 +8933,15 @@ h1, h2, h3, h4, h5,
     color: #fff; }
 
 .ftco-hireme {
-  background: #00f2fe;
-  z-index: -1; }
+  position: relative;
+  z-index: 1;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.88)), url('../images/bg_1.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed;
+  border-top: 1px solid rgba(0, 242, 254, 0.2);
+  border-bottom: 1px solid rgba(0, 242, 254, 0.2); }
   .ftco-hireme h2 {
     color: #fff;
     font-size: 40px;
