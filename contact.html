@@ -115,6 +115,30 @@
 			height: auto !important;
 		}
 
+		.form-status {
+			display: none;
+			padding: 14px 18px;
+			border-radius: 10px;
+			font-size: 14px;
+			font-weight: 500;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+
+		.form-status.success {
+			display: block;
+			background: rgba(16, 185, 129, 0.15);
+			border: 1px solid #10b981;
+			color: #34d399;
+		}
+
+		.form-status.error {
+			display: block;
+			background: rgba(239, 68, 68, 0.15);
+			border: 1px solid #ef4444;
+			color: #f87171;
+		}
+
 		@media (max-width: 767.98px) {
 			.page-header-section {
 				padding: 5em 0 2em 0;
@@ -239,22 +263,23 @@
 				<div class="col-md-8 ftco-animate">
 					<div class="contact-form-card">
 						<h3 class="text-white text-center mb-4 font-weight-bold">Send Me a Message</h3>
-						<form action="mailto:apiramanayagam15@gmail.com" method="post" enctype="text/plain">
+						<div id="form-status" class="form-status"></div>
+						<form id="contact-form">
 							<div class="form-group mb-3">
-								<input type="text" class="form-control" name="name" placeholder="Your Name" required>
+								<input type="text" class="form-control" name="name" id="form-name" placeholder="Your Name" required>
 							</div>
 							<div class="form-group mb-3">
-								<input type="email" class="form-control" name="email" placeholder="Your Email" required>
+								<input type="email" class="form-control" name="email" id="form-email" placeholder="Your Email" required>
 							</div>
 							<div class="form-group mb-3">
-								<input type="text" class="form-control" name="subject" placeholder="Subject" required>
+								<input type="text" class="form-control" name="subject" id="form-subject" placeholder="Subject" required>
 							</div>
 							<div class="form-group mb-4">
-								<textarea name="message" id="message" cols="30" rows="6" class="form-control"
+								<textarea name="message" id="form-message" cols="30" rows="6" class="form-control"
 									placeholder="Write your message here..." required></textarea>
 							</div>
 							<div class="form-group text-center mb-0">
-								<button type="submit" class="btn btn-primary py-3 px-5">Send Message</button>
+								<button type="submit" id="submit-btn" class="btn btn-primary py-3 px-5">Send Message</button>
 							</div>
 						</form>
 					</div>
@@ -317,6 +342,65 @@
 		var yearEl = document.getElementById('current-year');
 		if (yearEl) {
 			yearEl.textContent = new Date().getFullYear();
+		}
+
+		// Interactive Contact Form Handling with FormSubmit API
+		var contactForm = document.getElementById('contact-form');
+		if (contactForm) {
+			contactForm.addEventListener('submit', function (e) {
+				e.preventDefault();
+				var form = this;
+				var btn = document.getElementById('submit-btn');
+				var status = document.getElementById('form-status');
+
+				var name = document.getElementById('form-name').value;
+				var email = document.getElementById('form-email').value;
+				var subject = document.getElementById('form-subject').value;
+				var message = document.getElementById('form-message').value;
+
+				btn.disabled = true;
+				btn.textContent = 'Sending Message...';
+				status.className = 'form-status';
+				status.style.display = 'none';
+
+				var formData = {
+					name: name,
+					email: email,
+					subject: subject,
+					message: message,
+					_subject: 'Portfolio Contact Message: ' + subject + ' (From ' + name + ')',
+					_template: 'table',
+					_captcha: 'false'
+				};
+
+				fetch('https://formsubmit.co/ajax/apiramanayagam15@gmail.com', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'Accept': 'application/json'
+					},
+					body: JSON.stringify(formData)
+				})
+				.then(function (response) {
+					return response.json();
+				})
+				.then(function (data) {
+					btn.disabled = false;
+					btn.textContent = 'Send Message';
+					status.className = 'form-status success';
+					status.innerHTML = '&#9989; <strong>Thank you!</strong> Your message has been sent successfully to Piramanayagam.';
+					form.reset();
+				})
+				.catch(function (error) {
+					btn.disabled = false;
+					btn.textContent = 'Send Message';
+					// Fallback to mailto
+					var mailtoUrl = 'mailto:apiramanayagam15@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+					window.location.href = mailtoUrl;
+					status.className = 'form-status success';
+					status.innerHTML = '&#9989; <strong>Message prepared!</strong> If your email app opened, please click Send.';
+				});
+			});
 		}
 	</script>
 
