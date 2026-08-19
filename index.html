@@ -98,10 +98,33 @@
 			text-decoration: underline;
 		}
 
+		/* Hero Title Styling to prevent Name/Initial line breaks */
+		.hero .slider-text .one-forth .text {
+			max-width: 620px !important;
+		}
+
+		.hero .slider-text h1.hero-title {
+			font-size: clamp(30px, 4.2vw, 54px) !important;
+			white-space: nowrap !important;
+			line-height: 1.2;
+		}
+
+		.hero .slider-text h1.hero-title .hero-name {
+			display: inline;
+			white-space: nowrap;
+		}
+
+		.hero .slider-text h1.hero-title .hero-initial {
+			color: #00f2fe;
+			font-weight: 800;
+			white-space: nowrap;
+		}
+
 		/* Mobile Phones & Tablets Responsive Tweaks */
 		@media (max-width: 767.98px) {
-			.hero .slider-text h1 {
-				font-size: 32px !important;
+			.hero .slider-text h1.hero-title {
+				font-size: clamp(22px, 6.5vw, 32px) !important;
+				white-space: nowrap !important;
 			}
 
 			.hero .slider-text h2 {
@@ -169,7 +192,7 @@
 							data-scrollax=" properties: { translateY: '70%' }">
 							<div class="text">
 								<span class="subheading">Hello! This is</span>
-								<h1 class="mb-4 mt-3">Piramanayagam <span>A</span></h1>
+								<h1 class="mb-4 mt-3 hero-title"><span class="hero-name">Piramanayagam <span class="hero-initial">A</span></span></h1>
 
 								<h2>A <span id="typing-animation"></span></h2>
 

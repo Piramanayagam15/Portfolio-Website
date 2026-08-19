@@ -8524,9 +8524,9 @@ h1, h2, h3, h4, h5,
                 -ms-transform: translateY(-50%);
                 transform: translateY(-50%);
                 right: 0;
-                max-width: 50%;
+                max-width: 620px;
                 padding-left: 45px;
-                padding-right: 3em; } }
+                padding-right: 20px; } }
         .owl-carousel.home-slider .slider-item .slider-text .subheading {
           color: #000000;
           font-weight: 600;
@@ -8538,20 +8538,24 @@ h1, h2, h3, h4, h5,
           position: relative;
           z-index: 1; }
         .owl-carousel.home-slider .slider-item .slider-text h1 {
-          font-size: 60px;
+          font-size: clamp(32px, 4.2vw, 54px);
           color: #fff;
           line-height: 1.2;
-          font-weight: 800; }
+          font-weight: 800;
+          white-space: nowrap; }
           .owl-carousel.home-slider .slider-item .slider-text h1 span {
             font-weight: 800;
-            color: #00f2fe; }
+            color: #00f2fe;
+            white-space: nowrap; }
           @media (max-width: 991.98px) {
             .owl-carousel.home-slider .slider-item .slider-text h1 {
               color: #fff;
-              font-size: 50px; } }
+              font-size: clamp(26px, 5vw, 42px);
+              white-space: nowrap; } }
           @media (max-width: 767.98px) {
             .owl-carousel.home-slider .slider-item .slider-text h1 {
-              font-size: 40px; } }
+              font-size: clamp(22px, 6.5vw, 32px);
+              white-space: nowrap; } }
         .owl-carousel.home-slider .slider-item .slider-text h2 {
           font-size: 30px;
           font-weight: 400; }
