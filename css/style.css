@@ -8935,19 +8935,23 @@ h1, h2, h3, h4, h5,
 .ftco-hireme {
   position: relative;
   z-index: 1;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.88)), url('../images/bg_1.jpg') !important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5)), url('../images/bg_1.jpg') !important;
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
   background-attachment: fixed;
-  border-top: 1px solid rgba(0, 242, 254, 0.2);
-  border-bottom: 1px solid rgba(0, 242, 254, 0.2); }
+  border-top: 1px solid rgba(0, 242, 254, 0.3);
+  border-bottom: 1px solid rgba(0, 242, 254, 0.3); }
   .ftco-hireme h2 {
     color: #fff;
     font-size: 40px;
-    font-weight: 900; }
+    font-weight: 900;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8); }
     .ftco-hireme h2 span {
       color: #00f2fe; }
+  .ftco-hireme .heading h4 {
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8); }
 
 @media (min-width: 992px) {
   .margin-top {
