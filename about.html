@@ -70,23 +70,46 @@
 			margin: 0 auto;
 		}
 
-		.about-info p {
-			margin-bottom: 0.75rem;
-			font-size: 14px;
-			color: rgba(255, 255, 255, 0.7);
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			gap: 12px;
-			border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
-			padding-bottom: 6px;
+		.about-info-table {
+			width: 100%;
+			margin-bottom: 1.2rem;
+			border-collapse: collapse;
 		}
 
-		.about-info p span:last-child {
-			color: rgba(255, 255, 255, 0.95);
+		.about-info-table tr {
+			border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+		}
+
+		.about-info-table tr:last-child {
+			border-bottom: none;
+		}
+
+		.about-info-table td {
+			padding: 9px 4px;
+			font-size: 14px;
+			vertical-align: middle;
+		}
+
+		.about-info-table td.label-col {
+			color: #00f2fe;
+			font-weight: 600;
+			white-space: nowrap !important;
+			width: 1%;
+			padding-right: 16px;
+		}
+
+		.about-info-table td.value-col {
+			color: #ffffff;
 			font-weight: 500;
 			text-align: right;
-			white-space: nowrap;
+			white-space: nowrap !important;
+		}
+
+		@media (max-width: 480px) {
+			.about-info-table td {
+				font-size: 12.5px;
+				padding: 7px 2px;
+			}
 		}
 
 		.skill-mf {
@@ -276,13 +299,26 @@
 								</div>
 								<!-- Details full width -->
 								<div class="col-12">
-									<div class="about-info">
-										<p><span class="title-s">Name: </span> <span>PIRAMANAYAGAM A</span></p>
-										<p><span class="title-s">Job Role: </span> <span>Junior Web Developer</span></p>
-										<p><span class="title-s">Experience: </span> <span>Fresher</span></p>
-										<p><span class="title-s">Address: </span> <span>Tirunelveli, Tamil Nadu,
-												India</span></p>
-									</div>
+									<table class="about-info-table">
+										<tbody>
+											<tr>
+												<td class="label-col">Name:</td>
+												<td class="value-col">PIRAMANAYAGAM A</td>
+											</tr>
+											<tr>
+												<td class="label-col">Job Role:</td>
+												<td class="value-col">Junior Web Developer</td>
+											</tr>
+											<tr>
+												<td class="label-col">Experience:</td>
+												<td class="value-col">Fresher</td>
+											</tr>
+											<tr>
+												<td class="label-col">Address:</td>
+												<td class="value-col">Tirunelveli, Tamil Nadu, India</td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 							</div>
 
