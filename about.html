@@ -70,45 +70,46 @@
 			margin: 0 auto;
 		}
 
-		.about-info-table {
-			width: 100%;
+		.about-info-list {
 			margin-bottom: 1.2rem;
-			border-collapse: collapse;
 		}
 
-		.about-info-table tr {
-			border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+		.about-info-list .info-row {
+			display: flex;
+			align-items: center;
+			padding: 8px 0;
+			border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+			font-size: 14px;
 		}
 
-		.about-info-table tr:last-child {
+		.about-info-list .info-row:last-child {
 			border-bottom: none;
 		}
 
-		.about-info-table td {
-			padding: 9px 4px;
-			font-size: 14px;
-			vertical-align: middle;
-		}
-
-		.about-info-table td.label-col {
+		.about-info-list .info-label {
 			color: #00f2fe;
 			font-weight: 600;
+			width: 105px;
+			min-width: 105px;
+			flex-shrink: 0;
 			white-space: nowrap !important;
-			width: 1%;
-			padding-right: 16px;
 		}
 
-		.about-info-table td.value-col {
+		.about-info-list .info-value {
 			color: #ffffff;
 			font-weight: 500;
-			text-align: right;
 			white-space: nowrap !important;
+			text-align: left;
 		}
 
 		@media (max-width: 480px) {
-			.about-info-table td {
+			.about-info-list .info-row {
 				font-size: 12.5px;
-				padding: 7px 2px;
+				padding: 6px 0;
+			}
+			.about-info-list .info-label {
+				width: 85px;
+				min-width: 85px;
 			}
 		}
 
@@ -297,28 +298,26 @@
 											alt="Piramanayagam">
 									</div>
 								</div>
-								<!-- Details full width -->
+								<!-- Details list -->
 								<div class="col-12">
-									<table class="about-info-table">
-										<tbody>
-											<tr>
-												<td class="label-col">Name:</td>
-												<td class="value-col">PIRAMANAYAGAM A</td>
-											</tr>
-											<tr>
-												<td class="label-col">Job Role:</td>
-												<td class="value-col">Junior Web Developer</td>
-											</tr>
-											<tr>
-												<td class="label-col">Experience:</td>
-												<td class="value-col">Fresher</td>
-											</tr>
-											<tr>
-												<td class="label-col">Address:</td>
-												<td class="value-col">Tirunelveli, Tamil Nadu, India</td>
-											</tr>
-										</tbody>
-									</table>
+									<div class="about-info-list">
+										<div class="info-row">
+											<span class="info-label">Name:</span>
+											<span class="info-value">PIRAMANAYAGAM A</span>
+										</div>
+										<div class="info-row">
+											<span class="info-label">Job Role:</span>
+											<span class="info-value">Junior Web Developer</span>
+										</div>
+										<div class="info-row">
+											<span class="info-label">Experience:</span>
+											<span class="info-value">Fresher</span>
+										</div>
+										<div class="info-row">
+											<span class="info-label">Address:</span>
+											<span class="info-value">Tirunelveli, Tamil Nadu, India</span>
+										</div>
+									</div>
 								</div>
 							</div>
 
