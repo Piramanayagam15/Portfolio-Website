@@ -8939,7 +8939,7 @@ h1, h2, h3, h4, h5,
 .ftco-hireme {
   position: relative;
   z-index: 1;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5)), url('../images/bg_1.jpg') !important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.85)), url('../images/bg_1.jpg') !important;
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
